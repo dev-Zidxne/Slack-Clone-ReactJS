@@ -15,14 +15,11 @@ function App() {
   return (
     <div className="app">
       <Router>
+        <Header />
         <AppBody>
           <Routes>
-            <Route path="/" exact>
-              <Route path="/" element={<Header />} />
-            </Route>
-            <Route path="/" exact>
-              <Route path="/" element={<Sidebar />} />
-            </Route>
+            {/* <Route path="/" element={} /> */}
+            <Route path="/" element={<Sidebar />} />
           </Routes>
         </AppBody>
       </Router>
@@ -32,4 +29,7 @@ function App() {
 
 export default App;
 
-const AppBody = styled.div``;
+const AppBody = styled.div`
+  display: flex;
+  height: 100vh;
+`;
