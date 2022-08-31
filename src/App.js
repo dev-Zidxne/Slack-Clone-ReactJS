@@ -10,6 +10,7 @@ import {
 import styled from "styled-components";
 import Sidebar from "./components/Sidebar";
 import "./App.css";
+import Chat from "./components/Chat";
 
 function App() {
   return (
@@ -18,9 +19,9 @@ function App() {
         <Header />
         <AppBody>
           <Routes>
-            {/* <Route path="/" element={} /> */}
             <Route path="/" element={<Sidebar />} />
           </Routes>
+          <Chat />
         </AppBody>
       </Router>
     </div>
