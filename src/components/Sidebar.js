@@ -22,7 +22,7 @@ import { collection } from "firebase/firestore";
 
 function Sidebar() {
   const [channels, loading, error] = useCollection(db.collection("rooms"));
-  console.log(channels);
+
   return (
     <SidebarContainer>
       <SidebarHeader>

@@ -11,18 +11,27 @@ import styled from "styled-components";
 import Sidebar from "./components/Sidebar";
 import "./App.css";
 import Chat from "./components/Chat";
-
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "./firebase";
+import Login from "./components/Login";
 function App() {
+  const [user, loading] = useAuthState(auth);
   return (
     <div className="app">
       <Router>
-        <Header />
-        <AppBody>
-          <Routes>
-            <Route path="/" element={<Sidebar />} />
-          </Routes>
-          <Chat />
-        </AppBody>
+        {!user ? (
+          <Login />
+        ) : (
+          <>
+            <Header />
+            <AppBody>
+              <Routes>
+                <Route path="/" element={<Sidebar />} />
+              </Routes>
+              <Chat />
+            </AppBody>
+          </>
+        )}
       </Router>
     </div>
   );
