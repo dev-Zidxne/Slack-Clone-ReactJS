@@ -17,11 +17,13 @@ import {
   useCollection,
   useCollectionData,
 } from "react-firebase-hooks/firestore";
-import { db } from "../firebase";
+import { auth, db } from "../firebase";
 import { collection } from "firebase/firestore";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 function Sidebar() {
   const [channels, loading, error] = useCollection(db.collection("rooms"));
+  const [user] = useAuthState(auth);
 
   return (
     <SidebarContainer>
